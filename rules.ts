@@ -3,7 +3,6 @@ import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open, rectangle, yabai } from "./utils";
 
 const rules: KarabinerRules[] = [
-  // Define the Hyper key itself
   {
     description: "Hyper Key (⌃⌥⇧⌘)",
     manipulators: [
@@ -38,34 +37,18 @@ const rules: KarabinerRules[] = [
         ],
         type: "basic",
       },
-      //      {
-      //        type: "basic",
-      //        description: "Disable CMD + Tab to force Hyper Key usage",
-      //        from: {
-      //          key_code: "tab",
-      //          modifiers: {
-      //            mandatory: ["left_command"],
-      //          },
-      //        },
-      //        to: [
-      //          {
-      //            key_code: "tab",
-      //          },
-      //        ],
-      //      },
     ],
   },
   ...createHyperSubLayers({
     // quick actions
     spacebar: {
-      a: open("raycast://extensions/appest/ticktick/inbox"),
-      s: open("raycast://extensions/appest/ticktick/create"),
       d: open("raycast://extensions/sven/microsoft-teams/setPresence"),
       f: open("raycast://extensions/sven/microsoft-teams/findChat"),
       q: open("raycast://extensions/raycast/system/lock-screen"),
       c: open(
         "raycast://extensions/raycast/clipboard-history/clipboard-history"
       ),
+      l: open("raycast://extensions/raycast/system/lock-screen"),
     },
 
     // b = "Browser" applications
@@ -76,32 +59,31 @@ const rules: KarabinerRules[] = [
       r: open("https://reddit.com"),
       c: open("https://calendar.google.com"),
       g: open("https://github.com"),
-      n: open("https://app.clickup.com/37310131/home"),
+      n: open("https://app.clickup.com/37310131/v/o/s/55380405"),
       l: open("https://www.libgen.is/"),
       a: open("https://ui.shadcn.com/docs/components/accordion"),
       s: open("https://ui.shadcn.com/examples/mail"),
       d: open("https://ui.shadcn.com/blocks"),
-      e: open(
-        "https://srfreports.co.za/reports/social-research-foundation-tracking-poll-national"
-      ),
     },
     // o = "Open" applications
     o: {
       1: app("1Password"),
       b: app("Arc"),
-      c: app("TickTick"),
+      c: app("Microsoft To Do"),
       v: app("Visual Studio Code"),
       s: app("Slack"),
-      e: app("Mail"),
-      n: app("Notion"),
+      e: app("Microsoft Outlook"),
       t: app("Microsoft Teams (work or school)"),
-      x: app("Tabby"),
+      x: app("iTerm"),
       f: app("Finder"),
       i: app("Messages"),
       p: app("Spotify"),
       w: app("WhatsApp"),
       a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
       r: open("raycast://extensions/raycast/raycast/store"),
+      d: app("Docker Desktop"),
+      q: app("Postico 2"),
+      l: open("raycast://script-commands/open-main-desktops"),
     },
 
     // Yabai Width Settings
@@ -145,7 +127,15 @@ const rules: KarabinerRules[] = [
       l: open("raycast://ai-commands/explain-and-learn"),
       c: open("raycast://ai-commands/create-docs-inline"),
       s: open("raycast://ai-commands/create-detailed-summary"),
-      t: open("raycast://ai-commands/docker-commands?arguments=ad5ce1792f35&arguments=connect%20to%20the%20terminal"),
+      p: open("raycast://script-commands/prune-containers"),
+      m: open("raycast://ai-commands/commit-message"),
+      t: open("raycast://ai-commands/task-breakdown-bot"),
+    },
+    // c = "ClickUp"
+    c: {
+      f: open("https://app.clickup.com/37310131/v/l/5-90121382231-1"),
+      p: open("https://app.clickup.com/37310131/v/l/5-90051042713-1"),
+      i: open("https://app.clickup.com/37310131/v/o/f/90121300219"),
     },
   }),
 ];
