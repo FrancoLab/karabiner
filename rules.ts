@@ -1,6 +1,8 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open, rectangle, yabai } from "./utils";
+const yabaiR = "/opt/homebrew/bin/yabai";
+const jq = "/opt/homebrew/bin/jq";
 
 const rules: KarabinerRules[] = [
   {
@@ -78,7 +80,8 @@ const rules: KarabinerRules[] = [
       f: app("Finder"),
       i: app("Messages"),
       p: app("Spotify"),
-      w: app("WhatsApp"),
+      w: app("Webstorm"),
+      g: app("GoLand"),
       a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
       r: open("raycast://extensions/raycast/raycast/store"),
       d: app("Docker Desktop"),
@@ -110,8 +113,38 @@ const rules: KarabinerRules[] = [
       right_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap east"),
       x: yabai("/opt/homebrew/bin/yabai -m space --mirror x-axis"),
       y: yabai("/opt/homebrew/bin/yabai -m space --mirror y-axis"),
-      d: yabai("/opt/homebrew/bin/yabai -m window --minimize"),
+      // d: yabai("/opt/homebrew/bin/yabai -m window --minimize"),
+      d: {
+        to: [
+          {
+            shell_command: `
+            # Get the ID of the currently focused window
+            current_window_id=$(${yabaiR} -m query --windows --window | ${jq} -r '.id')
+
+            # Minimize the currently focused window
+            ${yabaiR} -m window --minimize
+
+            # Get the list of windows
+            windows=$(${yabaiR} -m query --windows)
+
+            # Find the next window to focus on
+            next_window_id=$(echo "$windows" | ${jq} -r --arg current_window_id "$current_window_id" '
+            .[] | select(.id != ($current_window_id | tonumber) and
+                        (.["is-visible"] // false) == true and
+                        (.["is-minimized"] // false) == false) | .id' | head -n 1)
+
+            # Focus on the next window
+            if [ -n "$next_window_id" ]; then
+            ${yabaiR} -m window --focus "$next_window_id"
+            else
+            echo "No next window to focus on."
+            fi
+`,
+          },
+        ],
+      },
     },
+
     // Yabai Focus Settings
     f: {
       left_arrow: yabai("/opt/homebrew/bin/yabai -m window --focus west"),

@@ -919,13 +919,37 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'WhatsApp.app'"
+                    "shell_command": "open -a 'Webstorm.app'"
                   }
                 ],
-                "description": "Open -a 'WhatsApp.app'",
+                "description": "Open -a 'Webstorm.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "w",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_o",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'GoLand.app'"
+                  }
+                ],
+                "description": "Open -a 'GoLand.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1501,10 +1525,9 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/yabai -m window --minimize"
+                    "shell_command": "\n            # Get the ID of the currently focused window\n            current_window_id=$(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.id')\n\n            # Minimize the currently focused window\n            /opt/homebrew/bin/yabai -m window --minimize\n\n            # Get the list of windows\n            windows=$(/opt/homebrew/bin/yabai -m query --windows)\n\n            # Find the next window to focus on\n            next_window_id=$(echo \"$windows\" | /opt/homebrew/bin/jq -r --arg current_window_id \"$current_window_id\" '\n            .[] | select(.id != ($current_window_id | tonumber) and\n                        (.[\"is-visible\"] // false) == true and\n                        (.[\"is-minimized\"] // false) == false) | .id' | head -n 1)\n\n            # Focus on the next window\n            if [ -n \"$next_window_id\" ]; then\n            /opt/homebrew/bin/yabai -m window --focus \"$next_window_id\"\n            else\n            echo \"No next window to focus on.\"\n            fi\n"
                   }
                 ],
-                "description": "Window: /opt/homebrew/bin/yabai -m window --minimize",
                 "type": "basic",
                 "from": {
                   "key_code": "d",
