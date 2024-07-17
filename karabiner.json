@@ -436,10 +436,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open https://github.com"
+                    "shell_command": "open https://github.com/FrancoLab?tab=repositories"
                   }
                 ],
-                "description": "Open https://github.com",
+                "description": "Open https://github.com/FrancoLab?tab=repositories",
                 "type": "basic",
                 "from": {
                   "key_code": "g",
@@ -532,34 +532,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open https://ui.shadcn.com/examples/mail"
+                    "shell_command": "open https://github.com/orgs/defijn-io/repositories"
                   }
                 ],
-                "description": "Open https://ui.shadcn.com/examples/mail",
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open https://ui.shadcn.com/blocks"
-                  }
-                ],
-                "description": "Open https://ui.shadcn.com/blocks",
+                "description": "Open https://github.com/orgs/defijn-io/repositories",
                 "type": "basic",
                 "from": {
                   "key_code": "d",
@@ -1162,13 +1138,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/yabai -m window --resize top:0:-20"
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --grid 1:4:0:0:2:1"
                   }
                 ],
-                "description": "Window: /opt/homebrew/bin/yabai -m window --resize top:0:-20",
+                "description": "Window: /opt/homebrew/bin/yabai -m window --grid 1:4:0:0:2:1",
                 "type": "basic",
                 "from": {
-                  "key_code": "up_arrow",
+                  "key_code": "h",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1186,13 +1162,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/yabai -m window --resize bottom:0:+20"
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --grid 4:1:0:2:4:2"
                   }
                 ],
-                "description": "Window: /opt/homebrew/bin/yabai -m window --resize bottom:0:+20",
+                "description": "Window: /opt/homebrew/bin/yabai -m window --grid 4:1:0:2:4:2",
                 "type": "basic",
                 "from": {
-                  "key_code": "down_arrow",
+                  "key_code": "j",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1210,13 +1186,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/yabai -m window --resize left:-20:0"
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --grid 4:1:0:0:4:2"
                   }
                 ],
-                "description": "Window: /opt/homebrew/bin/yabai -m window --resize left:-20:0",
+                "description": "Window: /opt/homebrew/bin/yabai -m window --grid 4:1:0:0:4:2",
                 "type": "basic",
                 "from": {
-                  "key_code": "left_arrow",
+                  "key_code": "k",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1234,13 +1210,61 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/yabai -m window --resize right:+20:0"
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --grid 1:4:2:0:2:1"
                   }
                 ],
-                "description": "Window: /opt/homebrew/bin/yabai -m window --resize right:+20:0",
+                "description": "Window: /opt/homebrew/bin/yabai -m window --grid 1:4:2:0:2:1",
                 "type": "basic",
                 "from": {
-                  "key_code": "right_arrow",
+                  "key_code": "l",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --grid 1:4:1:0:2:1"
+                  }
+                ],
+                "description": "Window: /opt/homebrew/bin/yabai -m window --grid 1:4:1:0:2:1",
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "/opt/homebrew/bin/yabai -m window --grid 1:4:0:0:4:1"
+                  }
+                ],
+                "description": "Window: /opt/homebrew/bin/yabai -m window --grid 1:4:0:0:4:1",
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1282,13 +1306,12 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/yabai -m space --balance"
+                    "shell_command": "\n            # Get the ID of the currently focused window\n            current_window_id=$(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.id')\n\n            # Minimize the currently focused window\n            /opt/homebrew/bin/yabai -m window --minimize\n\n            # Get the list of windows\n            windows=$(/opt/homebrew/bin/yabai -m query --windows)\n\n            # Find the next window to focus on\n            next_window_id=$(echo \"$windows\" | /opt/homebrew/bin/jq -r --arg current_window_id \"$current_window_id\" '\n            .[] | select(.id != ($current_window_id | tonumber) and\n                        (.[\"is-visible\"] // false) == true and\n                        (.[\"is-minimized\"] // false) == false) | .id' | head -n 1)\n\n            # Focus on the next window\n            if [ -n \"$next_window_id\" ]; then\n            /opt/homebrew/bin/yabai -m window --focus \"$next_window_id\"\n            else\n            echo \"No next window to focus on.\"\n            fi\n"
                   }
                 ],
-                "description": "Window: /opt/homebrew/bin/yabai -m space --balance",
                 "type": "basic",
                 "from": {
-                  "key_code": "b",
+                  "key_code": "d",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1508,29 +1531,6 @@
                 "type": "basic",
                 "from": {
                   "key_code": "y",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "\n            # Get the ID of the currently focused window\n            current_window_id=$(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.id')\n\n            # Minimize the currently focused window\n            /opt/homebrew/bin/yabai -m window --minimize\n\n            # Get the list of windows\n            windows=$(/opt/homebrew/bin/yabai -m query --windows)\n\n            # Find the next window to focus on\n            next_window_id=$(echo \"$windows\" | /opt/homebrew/bin/jq -r --arg current_window_id \"$current_window_id\" '\n            .[] | select(.id != ($current_window_id | tonumber) and\n                        (.[\"is-visible\"] // false) == true and\n                        (.[\"is-minimized\"] // false) == false) | .id' | head -n 1)\n\n            # Focus on the next window\n            if [ -n \"$next_window_id\" ]; then\n            /opt/homebrew/bin/yabai -m window --focus \"$next_window_id\"\n            else\n            echo \"No next window to focus on.\"\n            fi\n"
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "d",
                   "modifiers": {
                     "optional": [
                       "any"

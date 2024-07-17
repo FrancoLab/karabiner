@@ -1,7 +1,7 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open, rectangle, yabai } from "./utils";
-const yabaiR = "/opt/homebrew/bin/yabai";
+const yabaiBin = "/opt/homebrew/bin/yabai";
 const jq = "/opt/homebrew/bin/jq";
 
 const rules: KarabinerRules[] = [
@@ -60,12 +60,11 @@ const rules: KarabinerRules[] = [
       y: open("https://youtube.com"),
       r: open("https://reddit.com"),
       c: open("https://calendar.google.com"),
-      g: open("https://github.com"),
+      g: open("https://github.com/FrancoLab?tab=repositories"),
       n: open("https://app.clickup.com/37310131/v/o/s/55380405"),
       l: open("https://www.libgen.is/"),
       a: open("https://ui.shadcn.com/docs/components/accordion"),
-      s: open("https://ui.shadcn.com/examples/mail"),
-      d: open("https://ui.shadcn.com/blocks"),
+      d: open("https://github.com/orgs/defijn-io/repositories"),
     },
     // o = "Open" applications
     o: {
@@ -91,41 +90,26 @@ const rules: KarabinerRules[] = [
 
     // Yabai Width Settings
     w: {
-      up_arrow: yabai("/opt/homebrew/bin/yabai -m window --resize top:0:-20"),
-      down_arrow: yabai(
-        "/opt/homebrew/bin/yabai -m window --resize bottom:0:+20"
-      ),
-      left_arrow: yabai(
-        "/opt/homebrew/bin/yabai -m window --resize left:-20:0"
-      ),
-      right_arrow: yabai(
-        "/opt/homebrew/bin/yabai -m window --resize right:+20:0"
-      ),
-
+      // left align 1/3 of the screen
+      h: yabai("/opt/homebrew/bin/yabai -m window --grid 1:4:0:0:2:1"),
+      j: yabai("/opt/homebrew/bin/yabai -m window --grid 4:1:0:2:4:2"),
+      k: yabai("/opt/homebrew/bin/yabai -m window --grid 4:1:0:0:4:2"),
+      l: yabai("/opt/homebrew/bin/yabai -m window --grid 1:4:2:0:2:1"),
+      c: yabai("/opt/homebrew/bin/yabai -m window --grid 1:4:1:0:2:1"),
+      e: yabai("/opt/homebrew/bin/yabai -m window --grid 1:4:0:0:4:1"),
       f: yabai("/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen"),
-      b: yabai("/opt/homebrew/bin/yabai -m space --balance"),
-    },
-    // Yabai Swap Settings
-    s: {
-      left_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap west"),
-      down_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap south"),
-      up_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap north"),
-      right_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap east"),
-      x: yabai("/opt/homebrew/bin/yabai -m space --mirror x-axis"),
-      y: yabai("/opt/homebrew/bin/yabai -m space --mirror y-axis"),
-      // d: yabai("/opt/homebrew/bin/yabai -m window --minimize"),
       d: {
         to: [
           {
             shell_command: `
             # Get the ID of the currently focused window
-            current_window_id=$(${yabaiR} -m query --windows --window | ${jq} -r '.id')
+            current_window_id=$(${yabaiBin} -m query --windows --window | ${jq} -r '.id')
 
             # Minimize the currently focused window
-            ${yabaiR} -m window --minimize
+            ${yabaiBin} -m window --minimize
 
             # Get the list of windows
-            windows=$(${yabaiR} -m query --windows)
+            windows=$(${yabaiBin} -m query --windows)
 
             # Find the next window to focus on
             next_window_id=$(echo "$windows" | ${jq} -r --arg current_window_id "$current_window_id" '
@@ -135,7 +119,7 @@ const rules: KarabinerRules[] = [
 
             # Focus on the next window
             if [ -n "$next_window_id" ]; then
-            ${yabaiR} -m window --focus "$next_window_id"
+            ${yabaiBin} -m window --focus "$next_window_id"
             else
             echo "No next window to focus on."
             fi
@@ -143,6 +127,15 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+    },
+    // Yabai Swap Settings
+    s: {
+      left_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap west"),
+      down_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap south"),
+      up_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap north"),
+      right_arrow: yabai("/opt/homebrew/bin/yabai -m window --swap east"),
+      x: yabai("/opt/homebrew/bin/yabai -m space --mirror x-axis"),
+      y: yabai("/opt/homebrew/bin/yabai -m space --mirror y-axis"),
     },
 
     // Yabai Focus Settings
