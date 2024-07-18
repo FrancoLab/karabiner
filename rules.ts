@@ -81,6 +81,7 @@ const rules: KarabinerRules[] = [
       p: app("Spotify"),
       w: app("Webstorm"),
       g: app("GoLand"),
+      n: app("Obsidian"),
       a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
       r: open("raycast://extensions/raycast/raycast/store"),
       d: app("Docker Desktop"),
