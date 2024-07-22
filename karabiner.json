@@ -121,13 +121,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open raycast://extensions/sven/microsoft-teams/setPresence"
+                    "shell_command": "open https://app.clickup.com/37310131/v/g/13jknk-5948"
                   }
                 ],
-                "description": "Open raycast://extensions/sven/microsoft-teams/setPresence",
+                "description": "Open https://app.clickup.com/37310131/v/g/13jknk-5948",
                 "type": "basic",
                 "from": {
-                  "key_code": "d",
+                  "key_code": "p",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -145,85 +145,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open raycast://extensions/sven/microsoft-teams/findChat"
+                    "shell_command": "open https://app.clickup.com/"
                   }
                 ],
-                "description": "Open raycast://extensions/sven/microsoft-teams/findChat",
-                "type": "basic",
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/raycast/system/lock-screen"
-                  }
-                ],
-                "description": "Open raycast://extensions/raycast/system/lock-screen",
-                "type": "basic",
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/raycast/clipboard-history/clipboard-history"
-                  }
-                ],
-                "description": "Open raycast://extensions/raycast/clipboard-history/clipboard-history",
+                "description": "Open https://app.clickup.com/",
                 "type": "basic",
                 "from": {
                   "key_code": "c",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/raycast/system/lock-screen"
-                  }
-                ],
-                "description": "Open raycast://extensions/raycast/system/lock-screen",
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
                   "modifiers": {
                     "optional": [
                       "any"

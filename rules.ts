@@ -44,13 +44,8 @@ const rules: KarabinerRules[] = [
   ...createHyperSubLayers({
     // quick actions
     spacebar: {
-      d: open("raycast://extensions/sven/microsoft-teams/setPresence"),
-      f: open("raycast://extensions/sven/microsoft-teams/findChat"),
-      q: open("raycast://extensions/raycast/system/lock-screen"),
-      c: open(
-        "raycast://extensions/raycast/clipboard-history/clipboard-history"
-      ),
-      l: open("raycast://extensions/raycast/system/lock-screen"),
+      p: open("https://app.clickup.com/37310131/v/g/13jknk-5948"),
+      c: open("https://app.clickup.com/")
     },
 
     // b = "Browser" applications
