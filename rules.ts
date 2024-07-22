@@ -158,11 +158,9 @@ const rules: KarabinerRules[] = [
       m: open("raycast://ai-commands/commit-message"),
       t: open("raycast://ai-commands/task-breakdown-bot"),
     },
-    // c = "ClickUp"
+    // c = "Create"
     c: {
-      f: open("https://app.clickup.com/37310131/v/l/5-90121382231-1"),
-      p: open("https://app.clickup.com/37310131/v/l/5-90051042713-1"),
-      i: open("https://app.clickup.com/37310131/v/o/f/90121300219"),
+      n: open("raycast://extensions/KevinBatdorf/obsidian/createNoteCommand")
     },
   }),
 ];
