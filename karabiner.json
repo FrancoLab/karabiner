@@ -607,30 +607,6 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Microsoft To Do.app'"
-                  }
-                ],
-                "description": "Open -a 'Microsoft To Do.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
                     "shell_command": "open -a 'Visual Studio Code.app'"
                   }
                 ],
@@ -727,10 +703,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'iTerm.app'"
+                    "shell_command": "open -a 'WezTerm.app'"
                   }
                 ],
-                "description": "Open -a 'iTerm.app'",
+                "description": "Open -a 'WezTerm.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "x",
@@ -823,30 +799,6 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Webstorm.app'"
-                  }
-                ],
-                "description": "Open -a 'Webstorm.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
                     "shell_command": "open -a 'GoLand.app'"
                   }
                 ],
@@ -919,30 +871,6 @@
               {
                 "to": [
                   {
-                    "shell_command": "open raycast://extensions/raycast/raycast/store"
-                  }
-                ],
-                "description": "Open raycast://extensions/raycast/raycast/store",
-                "type": "basic",
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
                     "shell_command": "open -a 'Docker Desktop.app'"
                   }
                 ],
@@ -967,37 +895,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Postico 2.app'"
+                    "shell_command": "open -a 'Postman.app'"
                   }
                 ],
-                "description": "Open -a 'Postico 2.app'",
+                "description": "Open -a 'Postman.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://script-commands/open-main-desktops"
-                  }
-                ],
-                "description": "Open raycast://script-commands/open-main-desktops",
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
+                  "key_code": "r",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1842,10 +1746,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open raycast://ai-commands/create-docs-inline"
+                    "shell_command": "open raycast://ai-commands/camelcase-converter"
                   }
                 ],
-                "description": "Open raycast://ai-commands/create-docs-inline",
+                "description": "Open raycast://ai-commands/camelcase-converter",
                 "type": "basic",
                 "from": {
                   "key_code": "c",
@@ -1945,6 +1849,30 @@
                 "type": "basic",
                 "from": {
                   "key_code": "t",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open raycast://ai-commands/vim-expert?arguments={query}"
+                  }
+                ],
+                "description": "Open raycast://ai-commands/vim-expert?arguments={query}",
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
                   "modifiers": {
                     "optional": [
                       "any"

@@ -65,23 +65,19 @@ const rules: KarabinerRules[] = [
     o: {
       1: app("1Password"),
       b: app("Arc"),
-      c: app("Microsoft To Do"),
       v: app("Visual Studio Code"),
       s: app("Slack"),
       e: app("Microsoft Outlook"),
       t: app("Microsoft Teams (work or school)"),
-      x: app("iTerm"),
+      x: app("WezTerm"),
       f: app("Finder"),
       i: app("Messages"),
       p: app("Spotify"),
-      w: app("Webstorm"),
       g: app("GoLand"),
       n: app("Obsidian"),
       a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
-      r: open("raycast://extensions/raycast/raycast/store"),
       d: app("Docker Desktop"),
-      q: app("Postico 2"),
-      l: open("raycast://script-commands/open-main-desktops"),
+      r: app("Postman"),  
     },
 
     // Yabai Width Settings
@@ -147,13 +143,14 @@ const rules: KarabinerRules[] = [
       e: open("raycast://ai-commands/extract-insight"),
       d: open("raycast://ai-commands/explain-docs"),
       l: open("raycast://ai-commands/explain-and-learn"),
-      c: open("raycast://ai-commands/create-docs-inline"),
+      c: open("raycast://ai-commands/camelcase-converter"),
       s: open("raycast://ai-commands/create-detailed-summary"),
       p: open("raycast://script-commands/prune-containers"),
       m: open("raycast://ai-commands/commit-message"),
       t: open("raycast://ai-commands/task-breakdown-bot"),
+      n: open("raycast://ai-commands/vim-expert?arguments={query}")
     },
-    // c = "Create"
+    // c = "Command"
     c: {
       n: open("raycast://extensions/KevinBatdorf/obsidian/createNoteCommand")
     },
