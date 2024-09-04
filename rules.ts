@@ -45,7 +45,7 @@ const rules: KarabinerRules[] = [
     // quick actions
     spacebar: {
       p: open("https://app.clickup.com/37310131/v/g/13jknk-5948"),
-      c: open("https://app.clickup.com/")
+      c: open("https://app.clickup.com/"),
     },
 
     // b = "Browser" applications
@@ -73,11 +73,12 @@ const rules: KarabinerRules[] = [
       f: app("Finder"),
       i: app("Messages"),
       p: app("Spotify"),
-      g: app("GoLand"),
       n: app("Obsidian"),
       a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
       d: app("Docker Desktop"),
-      r: app("Postman"),  
+      r: app("Postman"),
+      q: app("Postico 2"),
+      c: open("raycast://extensions/raycast/raycast/confetti"),
     },
 
     // Yabai Width Settings
@@ -140,7 +141,7 @@ const rules: KarabinerRules[] = [
     // r = "Raycast"
     r: {
       i: open("raycast://ai-commands/improve-writing-fabric"),
-      e: open("raycast://ai-commands/extract-insight"),
+      e: open("raycast://ai-commands/create-micro-summary"),
       d: open("raycast://ai-commands/explain-docs"),
       l: open("raycast://ai-commands/explain-and-learn"),
       c: open("raycast://ai-commands/camelcase-converter"),
@@ -148,11 +149,11 @@ const rules: KarabinerRules[] = [
       p: open("raycast://script-commands/prune-containers"),
       m: open("raycast://ai-commands/commit-message"),
       t: open("raycast://ai-commands/task-breakdown-bot"),
-      n: open("raycast://ai-commands/vim-expert?arguments={query}")
+      n: open("raycast://ai-commands/vim-expert?arguments={query}"),
     },
     // c = "Command"
     c: {
-      n: open("raycast://extensions/KevinBatdorf/obsidian/createNoteCommand")
+      n: open("raycast://extensions/KevinBatdorf/obsidian/createNoteCommand"),
     },
   }),
 ];
